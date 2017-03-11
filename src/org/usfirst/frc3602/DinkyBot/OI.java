@@ -60,9 +60,7 @@ public class OI {
 
     public OI() {
     	
-    	SmartDashboard.putData("Linear Toggle", new LinearToggle());
-    	SmartDashboard.putData("LightOn", new LightOn());
-    	SmartDashboard.putData("Gear Drop", new LinearGearDrop());
+    	SmartDashboard.putData("Reset Sensors", new ResetDriveSensors());
         
     	JoystickButton shooterToggle = new JoystickButton(gamepad, 2);
     	JoystickButton pickupInToggle = new JoystickButton(gamepad, 1);
