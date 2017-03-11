@@ -67,6 +67,10 @@ public class DriveTrain extends Subsystem {
     	robotDrive.arcadeDrive(joy.getRawAxis(1), -joy.getRawAxis(2));
     }
     
+    public void manualArcade(double move, double turn){
+    	robotDrive.arcadeDrive(move, turn);
+    }
+    
     public double getGyroAngle() {
     	return gyro.getAngle();
     }
@@ -79,10 +83,8 @@ public class DriveTrain extends Subsystem {
     	robotDrive.tankDrive(leftValue, rightValue);
     }
     
-    public double getGearSonar() {
-    	sonarDistance = gearSonar.getAverageVoltage()/4.9/2.54*1000;
-    	return sonarDistance;
-    	
+    public void stop() {
+    	robotDrive.stopMotor();
     }
     
     public void log() {

@@ -61,6 +61,7 @@ public class OI {
     public OI() {
     	
     	SmartDashboard.putData("Reset Sensors", new ResetDriveSensors());
+    	SmartDashboard.putData("Drive Straight", new DriveForTime(5, 0.5));
         
     	JoystickButton shooterToggle = new JoystickButton(gamepad, 2);
     	JoystickButton pickupInToggle = new JoystickButton(gamepad, 1);
