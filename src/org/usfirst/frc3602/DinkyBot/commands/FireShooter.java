@@ -23,7 +23,7 @@ public class FireShooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooter.fireShooter(.75);
+    	Robot.shooter.fireShooter(1);
     	
     }
 
