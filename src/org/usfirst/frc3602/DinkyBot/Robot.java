@@ -69,7 +69,7 @@ public class Robot extends IterativeRobot {
     		UsbCamera camera1 = CameraServer.getInstance().startAutomaticCapture(0);
             camera1.setResolution(320, 240);
             camera1.setFPS(30);
-            camera1.setWhiteBalanceAuto();
+            camera1.setBrightness(1);
             Timer.delay(.5);
             
             UsbCamera camera2 = CameraServer.getInstance().startAutomaticCapture(1);
@@ -81,7 +81,7 @@ public class Robot extends IterativeRobot {
             
             CvSink cvSink1 = CameraServer.getInstance().getVideo(camera1);
             CvSink cvSink2 = CameraServer.getInstance().getVideo(camera2);
-            CvSource outputStream = CameraServer.getInstance().putVideo("Switcher", 640, 480);
+            CvSource outputStream = CameraServer.getInstance().putVideo("Switcher", 320, 240);
             
             Mat image = new Mat();
             
@@ -193,6 +193,7 @@ public class Robot extends IterativeRobot {
     	driveTrain.log();
     	linearActuator.log();
     	SmartDashboard.putBoolean("Light On?", lightOn);
+    	SmartDashboard.putNumber("Vision Angle", new VisionAngleCalculator().getHorizontalAngle());
     	
     }
 }
