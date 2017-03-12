@@ -39,7 +39,6 @@ public class DriveTrain extends Subsystem {
     private final SpeedController rightFrontMotor = RobotMap.driveTrainRightFrontMotor;
     private final SpeedController rightRearMotor = RobotMap.driveTrainRightRearMotor;
     private final RobotDrive robotDrive = RobotMap.driveTrainRobotDrive;
-    private final AnalogInput gearSonar = RobotMap.driveTrainGearSonar;
     private double sonarDistance;
     private final AHRS gyro = RobotMap.gyro;
 
@@ -50,7 +49,6 @@ public class DriveTrain extends Subsystem {
     // here. Call these from Commands.
 
     public DriveTrain() {
-    	gearSonar.setAverageBits(16);
     	
     }
     

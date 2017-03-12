@@ -2,6 +2,8 @@ package org.usfirst.frc3602.DinkyBot.subsystems;
 
 import org.usfirst.frc3602.DinkyBot.RobotMap;
 
+import com.ctre.CANTalon;
+
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -13,9 +15,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Shooter extends Subsystem {
 	
-	private final SpeedController ShooterVictor = RobotMap.shooterShooterVictor;
-	private final SpeedController ShooterFeeder = RobotMap.pickupPickupVictor;
-	private final Encoder ShooterEncoder = RobotMap.shooterShooterEncoder;
+	private final SpeedController feeder = RobotMap.shooterFeederVictor;
+	private final CANTalon shooter = RobotMap.shooterMotor;
 	
 	private static final double shooterWheelDiameter = 7;
 	private static final double pi = Math.PI;
@@ -27,17 +28,13 @@ public class Shooter extends Subsystem {
 
 	public Shooter() {
 		super();
-		
 		final double pulseDistance = pi * shooterWheelDiameter / pulsesPerRevolution / shooterGearRatio;
-		ShooterEncoder.setDistancePerPulse(pulseDistance);
 		
-		LiveWindow.addSensor("Shooter", "Shooter Encoder" , ShooterEncoder);
 		
 		
 	}
 	
 	public void log() {
-		SmartDashboard.putNumber("Shooter Speed", ShooterEncoder.getRate());
 	}
 	
     public void initDefaultCommand() {
@@ -46,17 +43,22 @@ public class Shooter extends Subsystem {
     }
     
     public void fireShooter(double shooterSpeed) {
-    	ShooterVictor.set(shooterSpeed);
-    	ShooterFeeder.set(1);
+    	shooter.set(shooterSpeed);
+    }
+    
+    public void runFeeder() {
+    	feeder.set(-.75);
+    }
+    
+    public void stopFeeder() {
+    	feeder.set(0);
     }
     
     public void stopShooter() {
-    	ShooterVictor.stopMotor();
-    	ShooterFeeder.stopMotor();
+    	shooter.set(0);
     }
     
     public void reset() {
-    	ShooterEncoder.reset();
     }
  
 }

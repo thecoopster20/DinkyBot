@@ -73,9 +73,6 @@ public class OI {
     	JoystickButton linearToggle = new JoystickButton(gamepad, 5);
     	
     	shooterToggle.toggleWhenPressed(new FireShooter());
-    	feederToggle.toggleWhenPressed(new FeedIn());
-    	linearToggle.whenActive(new LinearToggle());
-    	lightToggle.toggleWhenPressed(new LightOn());
     	
 
        

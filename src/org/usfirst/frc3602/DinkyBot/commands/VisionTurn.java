@@ -11,9 +11,10 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 public class VisionTurn extends CommandGroup {
 	
 	private VisionAngleCalculator visionAngle;
-	private double calculatedAngle = 0;
+	private double calculatedAngle;
 
     public VisionTurn() {
+    	calculatedAngle = 0;
     	visionAngle = new VisionAngleCalculator();
     	calculatedAngle = visionAngle.getHorizontalAngle();
         addSequential(new Turn(calculatedAngle));
