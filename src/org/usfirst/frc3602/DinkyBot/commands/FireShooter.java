@@ -24,14 +24,15 @@ public class FireShooter extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	RobotMap.shooterMotor.changeControlMode(TalonControlMode.Speed);
-    	RobotMap.shooterMotor.set(5000);
+    	RobotMap.shooterMotor.reverseOutput(true);
+    	RobotMap.shooterMotor.set(-5500);
     	
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Robot.shooter.fireShooter(1);
-    	if(RobotMap.shooterMotor.getSpeed() >= 5000){
+    	if(RobotMap.shooterMotor.getSpeed() <= -5400){
     		Robot.shooter.runFeeder();
     	}
     	else {
