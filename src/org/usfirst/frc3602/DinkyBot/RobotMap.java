@@ -90,7 +90,7 @@ public class RobotMap {
         
         shooterMotor = new CANTalon(5);
         shooterMotor.setFeedbackDevice(FeedbackDevice.CtreMagEncoder_Relative);
-        shooterMotor.reverseSensor(true);
+        shooterMotor.reverseSensor(false);
         shooterMotor.configNominalOutputVoltage(+0.0f, -0.0f);
         shooterMotor.configPeakOutputVoltage(+12.0f, -12.0f);
         shooterMotor.setProfile(0);
