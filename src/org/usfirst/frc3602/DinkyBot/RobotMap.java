@@ -95,7 +95,7 @@ public class RobotMap {
         shooterMotor.configPeakOutputVoltage(+12.0f, -12.0f);
         shooterMotor.setProfile(0);
         shooterMotor.setF(0.027);
-        shooterMotor.setP(0.001);
+        shooterMotor.setP(0.05);
         shooterMotor.setI(0);
         		
 
